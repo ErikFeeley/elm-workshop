@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
+model : { result : { id : number, name : String, stars : number1 } }
 model =
     { result =
         { id = 1
@@ -13,6 +14,7 @@ model =
     }
 
 
+main : Html msg
 main =
     let
         elmHubHeader =
@@ -22,18 +24,15 @@ main =
                 ]
     in
     div [ class "content" ]
-        [ text "TODO put the contents of elmHubHeader here instead of this text!"
+        [ elmHubHeader
         , ul [ class "results" ]
             [ li []
-                [ span [ class "star-count" ]
-                    [-- TODO display the number of stars here.
-                     --
-                     -- HINT: You'll need some parentheses to do this!
-                    ]
+                [ span [ class "star-count" ] [ text <| toString model.result.stars ]
 
                 -- TODO use the model to put a link here that points to
                 -- https://github.com/TheSeamau5/elm-checkerboardgrid-tutorial
                 -- by prepending the "https://github.com/" part.
+                , a [ href <| "https://github.com/" ++ model.result.name ] [ text model.result.name ]
                 ]
             ]
         ]
