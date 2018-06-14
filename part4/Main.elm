@@ -89,6 +89,7 @@ update msg model =
         model
 
 
+main : Program Never Model Msg
 main =
     Html.beginnerProgram
         { view = view
